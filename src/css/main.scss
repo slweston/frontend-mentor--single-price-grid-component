@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap');
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+img {
+	display: block;
+	max-width: 100%;
+}
+
+:root {
+	--clr-cyan: hsl(179, 61%, 44%);
+	--clr-light-cyan: hsl(179, 47%, 52%);
+	--clr-bright-yellow: hsl(71, 73%, 54%);
+	--clr-light-gray: hsl(204, 43%, 93%);
+	--clr-gray-blue: hsl(218, 22%, 67%);
+}
+
+$mediaMinWidth_desktop: 636px;
+$footerMaxHeight: 2.5rem;
+
+body {
+	font-family: 'Karla', sans-serif;
+	background: var(--clr-light-gray);
+}
+
+main {
+	overflow: auto;
+
+	.container {
+		height: calc(100vh - $footerMaxHeight);
+		min-width: 318px;
+		max-width: 318px;
+		margin-inline: auto;
+		display: grid;
+		align-items: center;
+
+		@media screen and (min-width: $mediaMinWidth_desktop) {
+			max-width: $mediaMinWidth_desktop;
+		}
+
+		.inner-container {
+			.cards {
+				background: #fff;
+
+				@media screen and (min-width: $mediaMinWidth_desktop) {
+					display: grid;
+					grid-template-columns: 1fr 1fr;
+					grid-template-areas:
+						'join join'
+						'sub why'
+					;
+				}
+
+				.card {
+					display: grid;
+					gap: 1em;
+					padding: 2em;
+
+					h1 {
+						font-size: 1.5rem;
+						padding-bottom: 0.5em;
+					}
+
+					h2 {
+						font-size: 1.1rem;
+					}
+
+					p {
+						line-height: 1.7;
+					}
+				}
+
+				.card--join {
+					grid-area: join;
+					color: var(--clr-gray-blue);
+
+					&__heading {
+						color: var(--clr-cyan);
+					}
+
+					&__guarantee {
+						color: var(--clr-bright-yellow);
+					}
+				}
+
+				.card--subscription {
+					grid-area: sub;
+					background: var(--clr-cyan);
+					color: #fff;
+
+					&__price {
+						&__dollar {
+							font-size: 1.5rem;
+							font-weight: bold;
+						}
+
+						&__per-month {
+							color: var(--clr-light-gray);
+						}
+					}
+
+					&__sign-up-link-button {
+						display: grid;
+						place-content: center;
+						background: var(--clr-bright-yellow);
+						color: #fff;
+						text-decoration: none;
+						padding: 0.5em 1em;
+						border-radius: 0.2em;
+						box-shadow: 0 0.5em 1em rgba(#333, 0.2);
+					}
+				}
+
+				.card--why {
+					grid-area: why;
+					background: var(--clr-light-cyan);
+					color: #fff;
+
+					&__list {
+						font-size: 0.9rem;
+						list-style: none;
+						color: var(--clr-light-gray);
+
+						li {
+							padding-block: 0.1em;
+						}
+					}
+				}
+
+
+			}
+		}
+	}
+}
+
+
+
+footer {
+	font-size: 0.8rem;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	padding: 0.25rem;
+	text-align: center;
+	height: $footerMaxHeight;
+	display: grid;
+	place-content: center;
+	background: #fff;
+
+	a {
+		color: blue;
+	}
+}
